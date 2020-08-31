@@ -25,6 +25,9 @@ class C_Entreprise extends Controller{
         $data['listClient'] = $clientdao->getList();
         $data['listEntreprise'] = $entreprisedao->getList();
         $this->view->load("client/client_iframe",$data);
+
+
+        
     }
 
     public function search() {

@@ -31,8 +31,7 @@ class C_Client extends Controller{
             $clientdao = new M_Client();
             $data['listeClient'] = $clientdao->liste();
             $data['listeEntreprise'] = $entreprisedao->getList();
-            // var_dump($data);
-            // die;
+           
             
             $this->view->load("client/client_iframe",$data);
 

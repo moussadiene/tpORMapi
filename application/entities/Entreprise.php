@@ -19,7 +19,7 @@
          **/
         private $nomEntreprise;
         /**
-         * @ORM\Column(type="string",unique=true) 
+         * @ORM\Column(type="string") 
          **/
         private $adresse ;
         /**
@@ -30,14 +30,7 @@
          * @ORM\Column(type="string") 
          **/
         private $email;
-        /**
-         * @ORM\Column(type="string",nullable=true)
-         **/
-        private $login;
-        /**
-         * @ORM\Column(type="string",nullable=true) 
-         **/
-        private $password;
+       
         /**
          * @ORM\Column(type="decimal") 
          **/
@@ -65,8 +58,6 @@
         public function getTelephone(){return $this->telephone;}
         public function getAdresse(){return $this->adresse;}
         public function getEmail(){return $this->email;}
-        public function getLogin(){return $this->login;}
-        public function getPassword(){return $this->password;}
         public function getBudget(){return $this->budget;}
 
         public function getComptes(){return $this->comptes;}
@@ -77,8 +68,6 @@
        public function setTelephone($telephone){ $this->telephone = $telephone;}
        public function setAdresse($adresse){ $this->adresse = $adresse;}
        public function setEmail($email){ $this->email = $email;}
-       public function setLogin($login = null){ $this->login = $login;}
-       public function setPassword($password = null){ $this->password = $password;}
        public function setBudjet($budget){ $this->budget = $budget;}
 
        public function setComptes($comptes){ $this->comptes = $comptes;}

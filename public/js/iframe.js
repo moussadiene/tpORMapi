@@ -29,19 +29,21 @@
 
 
 
-function vueClient() {
+function vueClients() {
+   // alert(1);
     $('.dash').removeClass('active');
     $('.compte').removeClass('active');
     $('.client').addClass('active');
     let contain = document.getElementById("contain")
-    contain.innerHTML = '<iframe src="http://localhost/projets/simplon/tpORMDoctrine/C_Client/getAll" title="IFRAME" width=100%" height="136%" style="border : none"></iframe>';
+    contain.innerHTML = '<iframe src="http://localhost/projets/simplon/tpORMapi/C_Client/getAll" title="IFRAME" width=100%" height="136%" style="border : none"></iframe>';
 
 }
 
-function vueCompte() {
+function vueComptes() {
+    //alert(1);
     $('.dash').removeClass('active');
     $('.client').removeClass('active');
     $('.compte').addClass('active');
     let contain = document.getElementById("contain")
-    contain.innerHTML = '<iframe src="http://localhost/projets/simplon/tpORMDoctrine/C_Compte/getAll" title="IFRAME" width=100%" height="136%" style="border : none"></iframe>';
+    contain.innerHTML = '<iframe src="http://localhost/projets/simplon/tpORMapi/C_Compte/getAll" title="IFRAME" width=100%" height="136%" style="border : none"></iframe>';
 }

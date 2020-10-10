@@ -4,6 +4,7 @@ namespace application\controller;
 use application\model\M_Client;
 use application\model\M_Compte;
 use application\model\M_Entreprise;
+use application\model\M_Operation;
 use application\model\M_TypeCompte;
 
 use Client;
@@ -57,6 +58,59 @@ class C_Compte extends Controller{
 
             $this->view->load("compte/compte_iframe",$data);
         }
+
+        public function getSoldeCompte($numero)
+        {
+
+          
+            $comptedao = new M_Compte();
+
+            $data[] = $comptedao->getSoldeByNumero($numero);
+            // var_dump($data);
+            // die;
+            echo json_encode($data);
+            //$data['listeTypeCompte'] = $typecomptedao->getList();
+
+            //$this->view->load("compte/compte_iframe",$data);
+        }
+        public function getOperationByNumero($numero)
+        {
+
+            $comptedao = new M_Compte();
+            $compte = $comptedao->getCompteByNumero($numero);
+
+            // foreach($compte as $key => $val){
+            //     $data[] = $val->getOperation();
+                
+            // } 
+            if($compte){
+                $i = 0;
+                $opearationdao = new M_Operation();
+                $data = $opearationdao->getOperationByCompte($numero);
+                foreach($data as $row ){
+                    
+                    $liste[$i] = array (
+                        'id' => $row->getID(),
+                        'numero' => $row->getCompte()->getNumero(),
+                        'montant' => $row->getMontant(),
+                        'dateOuverture' => $row->getDateOuverture(),
+                        'typeOperation' => $row->getTypeOperation()->getLibelle()
+                    );
+                    $i++;
+                }
+                
+                $data = $liste;
+            }else{
+                $data[] = Null; 
+            }
+            // var_dump($data);
+            // die;
+            echo json_encode($data);
+            //$data['listeTypeCompte'] = $typecomptedao->getList();
+
+            //$this->view->load("compte/compte_iframe",$data);
+        }
+
 
         public function addCompte() {
 

@@ -55,14 +55,7 @@
          * @ORM\Column(type="string",nullable=true)
          **/
         private $salaire;
-        /**
-         * @ORM\Column(type="string",nullable=true)
-         **/
-        private $login;
-        /**
-         * @ORM\Column(type="string",nullable=true)
-         **/
-        private $password;
+       
         /**
          * One client has many comptes. This is the inverse side.
          * @ORM\OneToMany(targetEntity="Compte", mappedBy="client")

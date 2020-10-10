@@ -48,6 +48,14 @@
 				return $this->db->getRepository('Compte')->findBy(array('typecompte_id' => $typecompte_id));
 			}
 		}
+		public function getCompteByNumero($numero)
+		{
+			if($this->db != null)
+			{
+				return $this->db->getRepository('Compte')->findBy(array('numero' => $numero));
+			}
+		}
+		
 		public function liste()
 		{
 			if($this->db != null)
@@ -73,5 +81,26 @@
 				//return $this->db->getRepository('TypeCompte')->findBy(array('libelle' => $lib));
 			}
 		}
-
+		// public function getSoldeCompte($compte)
+		// {
+		// 	if($this->db != null)
+		// 	{
+		// 		return $this->db->getRepository('Compte')->findBy(array('numero' => $compte->getNumero()));
+		// 	}
+		// }
+		public function getSoldeByNumero($numero)
+		{
+			if($this->db != null)
+			{
+				return $this->db->createQuery("SELECT c.solde FROM Compte c WHERE c.numero='$numero'")->getOneOrNullResult();
+				//return $this->db->getRepository('TypeCompte')->findBy(array('libelle' => $lib));
+			}
+		}
+		// public function getCompteByNumero($numero)
+		// {
+		// 	if($this->db != null)
+		// 	{
+		// 		return $this->db->createQuery("SELECT c FROM Compte c WHERE c.numero='$numero'")->getOneOrNullResult();
+		// 	}
+		// }
 	}

@@ -204,11 +204,11 @@
                                             <th class="th-sm">Matricule</th>
                                             <th class="th-sm">Nom</th>
                                             <th class="th-sm">Prenom</th>
-                                            <th class="th-sm">CNI</th>
-                                            <th class="th-sm">Adresse</th>
+                                            
                                             <th class="th-sm">Telephone</th>
                                             <th class="th-sm">Email</th>
                                             <th class="th-sm">Salaire</th>
+                                            <th class="th-sm">action</th>
                                             <th class="th-sm">action</th>
 
                                         </tr>
@@ -220,14 +220,14 @@
                                                     <td><?= $client->getMatricule() ?></td>
                                                     <td><?= $client->getNom()?></td>
                                                     <td><?= $client->getPrenom()?></td>
-                                                    <td><?= $client->getCni()?></td>
-
-                                                    <td><?= $client->getAdresse()?></td>
+                                                    
                                                     <td><?= $client->getTelephone()?></td>
                                                     <td><?= $client->getEmail()?></td>
                                                     <td><?= $client->getSalaire()?></td>
                                                     <td>
                                                         <a href="#" class="btn btn-primary btn-sm">Editer</a>
+                                                    </td>
+                                                    <td>
                                                         <a href="#" class="btn btn-danger btn-sm">Sup</a>
                                                     </td>
 

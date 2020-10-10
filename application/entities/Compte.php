@@ -1,6 +1,7 @@
 <?php
 
-    use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
         /**
          * @ORM\Entity 
@@ -10,12 +11,7 @@
     class Compte{
         /**
          * @ORM\Id 
-         * @ORM\Column(type="integer") 
-         * @ORM\GeneratedValue 
-         **/
-        private $id;
-        /**
-         * @ORM\Column(type="string",unique=true) 
+         * @ORM\Column(type="string") 
          **/
         private $numero;
         /**
@@ -45,12 +41,17 @@
          */
         private $typeCompte;
 
-         /**
+        /**
          * Many compte have one entreprise. This is the owning side.
          * @ORM\ManyToOne(targetEntity="Entreprise", inversedBy="comptes")
          * @ORM\JoinColumn(name="entreprise_id", referencedColumnName="id")
          */
         private $entreprise;
+        /**
+         * One entreprise has many comptes. This is the inverse side.
+         * @ORM\OneToMany(targetEntity="Operation", mappedBy="compte")
+         */
+        private $operations;
 
         /**
          * @ORM\Column(type="decimal",nullable=true)
@@ -73,7 +74,9 @@
          **/
         private $dateFin;
 
-        public function __construct(){ }
+        public function __construct(){ 
+            $this->operations = new ArrayCollection();
+        }
 
         public function getID(){return $this->id;}
         public function getDateOuverture(){return $this->dateOuverture;}
@@ -83,6 +86,7 @@
 
         public function getClient(){return $this->client;}
         public function getEntreprise(){return $this->entreprise;}
+        public function getOperation(){return $this->operations;}
         public function getTypeCompte(){return $this->typeCompte;}
         //epargne
         public function getRemuneration(){return $this->remuneration;}
@@ -108,6 +112,7 @@
 
         public function setClient($client){ $this->client= $client;}
         public function setEntreprise($entreprise){ $this->entreprise = $entreprise;}
+        public function setOperation($operations){ $this->operations = $operations;}
         public function setTypeCompte($typeCompte){ $this->typeCompte = $typeCompte;}
 
     }

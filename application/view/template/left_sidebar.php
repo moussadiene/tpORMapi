@@ -20,13 +20,13 @@
             <nav class="navbar navbar-dark bg-info col-lg-12">
               <ul class="navbar-nav col-lg-12">
                   <li class="nav-item active">
-                      <a class="nav-link" href="http://localhost/projets/simplon/tpORMDoctrine/Dashboad/index"><span class="fa fa-home"></span> &ThinSpace;&ThinSpace; Dashboad</a>
+                      <a class="nav-link" href="http://localhost/projets/simplon/tpORMapi/Dashboad"><span class="fa fa-home"></span> &ThinSpace;&ThinSpace; Dashboad</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" onclick="vueClient();"><span class="fa fa-user"></span> &ThinSpace;&ThinSpace;Gestion Client</a>
+                      <a class="nav-link" onclick="vueClients();"><span class="fa fa-user"></span> &ThinSpace;&ThinSpace;Gestion Client</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" onclick="vueCompte();"><i class="fas fa-briefcase"></i> &ThinSpace;&ThinSpace;Gestion Compte</a>
+                      <a class="nav-link" onclick="vueComptes();"><i class="fas fa-briefcase"></i> &ThinSpace;&ThinSpace;Gestion Compte</a>
                   </li>
               </ul>
             </nav>
